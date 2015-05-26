@@ -11,7 +11,7 @@
 
         // Default params
         var params = $.extend({
-            url: '',
+            src: '',
             columns: [],
             onSelect: function() {}
         }, options);
@@ -49,7 +49,7 @@
                 open: function () {
                     $('#nlookup_search').dataTable({
                         "ajax": {
-                            "url": params.url,
+                            "url": params.src,
                             "dataSrc": ""
                         },
                         "columns": dtCol,
