@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>nLookup demo</title>
+		<script src="../dist/js/jquery.min.js"></script>
+		<script src="../dist/js/jquery.dataTables.min.js"></script>
+		<script src="../dist/js/magnificPopup.js"></script>
+		<script src="../dist/js/nlookup.js"></script>
+		<link href="../dist/css/jquery.dataTables.min.css" media="screen" rel="stylesheet" />
+		<link href="../dist/css/magnificPopup.css" media="screen" rel="stylesheet" />
+		<link href="../dist/css/bootstrap.css" media="screen" rel="stylesheet" />
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// select record on click button
+				$("#example1").on("click", function() {
+					$.fn.nLookup({
+						columns: [
+							{'label': 'Name', 'field': 'name'},
+							{'label': 'Code', 'field': 'code'},
+						],
+						url: 'countries.json',
+						onSelect: function (data) {
+							$("#example_countryname").html(data.name);
+							$("#example_countrycode").html(data.code);
+						}
+					});
+				});
+			});	
+			
+		</script>
+	</head>
+	<body>
+		<button id="example1">Click me to test!</button>
+		<p>
+			Selected country:</br>
+			Name: <span id="example_countryname"></span>
+			Code: <span id="example_countrycode"></span>
+		</p>	
+	</body>
+</html>
